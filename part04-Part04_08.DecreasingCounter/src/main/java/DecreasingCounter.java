@@ -15,7 +15,16 @@ public class DecreasingCounter {
     public void decrement() {
         // write the method implementation here
         // the aim is to decrement the value of the counter by one
+        
+        this.value = this.value - 1;
+        
+        if(this.value < 0) {
+            reset();
+        }
     }
 
     // the other methods go here
+    public void reset() {
+        this.value = 0;
+    }
 }
