@@ -9,6 +9,24 @@ public class Items {
 
         ArrayList<Item> items = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
+        
+        // Read the names of items from the user
+        while (true) {
+            System.out.println("Name: ");
+            String name = scanner.nextLine();
+            if (name.isEmpty()) {
+                break;
+            }
+
+
+            // Add to the list a new item
+            // whose name is the previous user input
+            items.add(new Item(name));
+        }
+        
+        for(Item item : items) {
+            System.out.println(item);
+        }
 
     }
 }
