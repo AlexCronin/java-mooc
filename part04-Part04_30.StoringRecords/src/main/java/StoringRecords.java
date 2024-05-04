@@ -25,6 +25,31 @@ public class StoringRecords {
 
         // Write here the code for reading from file
         // and printing the read records
+        
+        // we create a scanner for reading the file
+        try (Scanner fileScanner = new Scanner(Paths.get(file))) {
+
+            // we read all the lines of the file
+            while (fileScanner.hasNextLine()) {
+                String line = fileScanner.nextLine();
+
+                // if the line is blank we do nothing
+                if (line.isEmpty()) {
+                    continue;
+                }
+
+                // do something with the data
+                String[] parts = line.split(",");
+                String name = parts[0];
+                int age = Integer.valueOf(parts[1]);
+
+                persons.add(new Person(name, age));
+
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        
         return persons;
 
     }
